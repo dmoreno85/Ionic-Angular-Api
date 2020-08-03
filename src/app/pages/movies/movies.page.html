@@ -7,7 +7,7 @@
 <ion-content>
   <ion-searchbar animate placeholder="Busca tu película" (ionChange)="searchMovie($event)"></ion-searchbar>
   <ion-list ngif="movies">
-    <ion-item *ngFor="let movie of movies['results'] ">
+    <ion-item *ngFor="let movie of movies['results'] " [routerLink]="['/movie-details/', movie.id]">
       <ion-avatar slot="start" *ngIf="movie.poster_path">
         <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
       </ion-avatar>
