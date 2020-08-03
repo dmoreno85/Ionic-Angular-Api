@@ -12,4 +12,8 @@ export class MoviesService {
   searchMovies(query: String): Observable<Object> {
     return this.http.get(`https://api.themoviedb.org/3/search/movie?api_key=${this.APIKEY}&language=en-US&query=${query}&page=1&include_adult=false`)
   };
+
+  movieByID(ID: string) {
+    return this.http.get(`https://api.themoviedb.org/3/movie/${ID}?api_key=${this.APIKEY}&language=en-US`)
+  };
 }
