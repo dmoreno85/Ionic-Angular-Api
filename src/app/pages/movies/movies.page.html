@@ -1,9 +1,22 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>movies</ion-title>
+  <ion-toolbar class="ion-text-center">
+    <ion-title>Películas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-searchbar animate placeholder="Busca tu película" (ionChange)="searchMovie($event)"></ion-searchbar>
+  <ion-list ngif="movies">
+    <ion-item *ngFor="let movie of movies['results'] ">
+      <ion-avatar slot="start" *ngIf="movie.poster_path">
+        <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" />
+      </ion-avatar>
+      <ion-avatar slot="start" *ngIf="!movie.poster_path">
+        <img src="../../../assets/images/Interrogation.jpg" />
+      </ion-avatar>
+      <ion-label>
+        <h3>{{movie.title}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>
