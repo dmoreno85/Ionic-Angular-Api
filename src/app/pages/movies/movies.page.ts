@@ -13,9 +13,11 @@ export class MoviesPage implements OnInit {
 
   searchMovie(query) {
     const res = query.target.value;
-    this.movieService.searchMovies(res).subscribe(value => {
-      this.movies = value;
-    });
+    if (res.length > 0) {
+      this.movieService.searchMovies(res).subscribe(value => {
+        this.movies = value;
+      });
+    }
 
   };
 }

@@ -1,9 +1,45 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>movieDetails</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="movies"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center" *ngIf="movieDetail">{{movieDetail.title}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content fullscreen>
+  <ion-card *ngIf="movieDetail">
+    <img  src="https://image.tmdb.org/t/p/w500/{{movieDetail.poster_path}}" />
+    <ion-card-header >
+      <ion-card-subtitle class="cardSubtitle" > <h5>Votos : {{movieDetail.vote_average}} </h5> <h5>{{movieDetail.release_date}}</h5></ion-card-subtitle>
+      <ion-card-title class="cardTitle" >"{{movieDetail.tagline}}"</ion-card-title>
+    </ion-card-header>
+    <ion-card-content >
+      {{movieDetail.overview}}
+    </ion-card-content>
+    <ion-card-content >
+      <h2>Genero: </h2>
+      <ion-item *ngFor="let genres of movieDetail.genres">
+        <ion-label >- {{genres.name}}</ion-label>
+      </ion-item>
+    </ion-card-content>
+    <ion-card-content  >
+      <h2>Idiomas: </h2>
+      <ion-item *ngFor="let language of movieDetail.spoken_languages">
+        <ion-label>- {{language.name}}</ion-label>
+      </ion-item>
+    </ion-card-content>
+    <ion-card-content >
+      <h2>Productores: </h2>
+      <ion-item *ngFor="let production of movieDetail.production_companies">
+        <ion-label >- {{production.name}}</ion-label>
+      </ion-item>
+    </ion-card-content>
+    <ion-card-content >
+      <h2>Filmada en : </h2>
+      <ion-item *ngFor="let film of movieDetail.production_countries">
+        <ion-label >- {{film.name}}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
