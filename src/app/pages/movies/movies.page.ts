@@ -17,7 +17,7 @@ export class MoviesPage implements OnInit {
       this.movieService.searchMovies(res).subscribe(value => {
         this.movies = value;
       });
-    }
+    }else return this.movies=[];
 
   };
 }

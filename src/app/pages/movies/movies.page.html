@@ -1,11 +1,11 @@
 <ion-header>
-  <ion-toolbar class="ion-text-center">
-    <ion-title>Películas</ion-title>
+  <ion-toolbar color="danger"  class="ion-text-center">
+    <ion-title class="font">Películas</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-searchbar animate placeholder="Busca tu película" (ionChange)="searchMovie($event)"></ion-searchbar>
+<ion-content >
+  <ion-searchbar animate placeholder="Busca tu película" (ionChange)="searchMovie($event)" color="medium"></ion-searchbar>
   <ion-list ngif="movies">
     <ion-item *ngFor="let movie of movies['results'] " [routerLink]="['/movie-details/', movie.id]">
       <ion-avatar slot="start" *ngIf="movie.poster_path">
